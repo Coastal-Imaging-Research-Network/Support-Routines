@@ -39,17 +39,28 @@ U = ( Xplus * (m(1:4)) ./ (Xplus * [m(5:7);1]) );
 V = ( Xplus * (m(8:11)) ./ (Xplus * [m(5:7);1]) );
 
 %
-% Copyright by Oregon State University, 2002
-% Developed through collaborative effort of the Argus Users Group
-% For official use by the Argus Users Group or other licensed activities.
+
 %
-% $Id: findUV.m 6 2016-02-11 00:46:00Z  $
+%   Copyright (C) 2017  Coastal Imaging Research Network
+%                       and Oregon State University
+
+%    This program is free software: you can redistribute it and/or  
+%    modify it under the terms of the GNU General Public License as 
+%    published by the Free Software Foundation, version 3 of the 
+%    License.
+
+%    This program is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see
+%                                <http://www.gnu.org/licenses/>.
+
+% CIRN: https://coastal-imaging-research-network.github.io/
+% CIL:  http://cil-www.coas.oregonstate.edu
 %
-% $Log: findUV.m,v $
-% Revision 1.11  2004/03/25 16:55:26  stanley
-% auto insert keywords
+%key support routines Argus CIL CIRN
 %
-%
-%key geometry 
-%comment  Returns image coordinates of real world coordinates 
-%
+

@@ -11,17 +11,28 @@ m = m(:)';
 P = [m(1:4); m(8:11); [m(5:7) 1]];
 
 %
-% Copyright by Oregon State University, 2002
-% Developed through collaborative effort of the Argus Users Group
-% For official use by the Argus Users Group or other licensed activities.
+
 %
-% $Id: m2P.m 14 2016-02-11 01:33:40Z  $
+%   Copyright (C) 2017  Coastal Imaging Research Network
+%                       and Oregon State University
+
+%    This program is free software: you can redistribute it and/or  
+%    modify it under the terms of the GNU General Public License as 
+%    published by the Free Software Foundation, version 3 of the 
+%    License.
+
+%    This program is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see
+%                                <http://www.gnu.org/licenses/>.
+
+% CIRN: https://coastal-imaging-research-network.github.io/
+% CIL:  http://cil-www.coas.oregonstate.edu
 %
-% $Log: m2P.m,v $
-% Revision 1.1  2008/05/06 23:15:38  stanley
-% Initial revision
+%key support routines Argus CIL CIRN
 %
-%
-%key homogeneous new
-%comment converts an m-vector into a P-matrix
-%
+
