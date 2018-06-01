@@ -1,23 +1,31 @@
-function R = angles2R(a,t,s)
-
-% R = angles2R(a,t,s)
-% Makes rotation matrix from input azimuth, tilt, and swing (roll)
-% From p 612 of Wolf, 1983
+function [P,K,R] = makeP(az, tilt, roll, hfov, vfov, U0, V0, camxyz)
+%
+%   P = makeP(az, tilt, roll, hfov, vfov, U0, V0, camxyz)
+%
+% create a camera projection matrix for a synthetic camera with the
+% following characteristics
+%   tilt    - tilt angle in radians
+%   az      - azimuth of view in compass degrees
+%   roll    - roll in degrees
+%   hfov    - horizontal field of view (radians)
+%   vfov    - vertical field of view (radians)
+%   U0      - U image center in pixels
+%   V0      - V image center in pixels
 %
 
-R(1,1) = cos(a) * cos(s) + sin(a) * cos(t) * sin(s);
-R(1,2) = -cos(s) * sin(a) + sin(s) * cos(t) * cos(a);
-R(1,3) = sin(s) * sin(t);
-R(2,1) = -sin(s) * cos(a) + cos(s) * cos(t) * sin(a);
-R(2,2) = sin(s) * sin(a) + cos(s) * cos(t) * cos(a);
-R(2,3) = cos(s) * sin(t);
-R(3,1) = sin(t) * sin(a);
-R(3,2) = sin(t) * cos(a);
-R(3,3) = -cos(t);
+% written by Holman on the Spanish coast, 05/30/06.
+% updated 02/07/17
 
-%
 
-%
+fU = U0 / tan(hfov/2);
+fV = V0 / tan(vfov/2);
+K = [fU    0     U0; ...
+     0    -fV    V0; ...
+     0     0      1];
+R = angles2R(az, tilt, roll);
+P = K * R * [eye(3) -camxyz(:)];  
+P = P / P(3,4);
+
 %   Copyright (C) 2017  Coastal Imaging Research Network
 %                       and Oregon State University
 
@@ -37,7 +45,3 @@ R(3,3) = -cos(t);
 
 % CIRN: https://coastal-imaging-research-network.github.io/
 % CIL:  http://cil-www.coas.oregonstate.edu
-%
-%key support routines Argus CIL CIRN
-%
-
