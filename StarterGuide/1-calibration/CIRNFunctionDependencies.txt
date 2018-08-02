@@ -1,0 +1,21 @@
+CIRN Function dependencies (given as a tree)
+
+*Note: read the tree vertically from top to bottom, and read a single indent 
+as 'calls'. For example, if the tree was:
+
+	function1
+		function2
+			function3
+		function4
+
+This should be read as 'function 1 calls function2 and function4, while 
+function2 calls function3.' 
+
+
+
+
+Dependency tree for Calibration demo:
+
+demoCalibrate.m
+    makeRadDist.m
+    makeTangDist.m
