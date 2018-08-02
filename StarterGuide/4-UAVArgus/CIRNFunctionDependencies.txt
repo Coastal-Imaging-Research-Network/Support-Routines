@@ -1,0 +1,72 @@
+CIRN Function dependencies (given as a tree)
+
+*Note: read the tree vertically from top to bottom, and read a single indent 
+as 'calls'. For example, if the tree was:
+
+	function1
+		function2
+			function3
+		function4
+
+This should be read as 'function 1 calls function2 and function4, while 
+function2 calls function3.' 
+
+*Note: a '...' indicates the the dependencies of the function have already
+been defined higher up in the tree
+
+
+
+
+Dependency tree for UAVArgus demo:
+
+demoUAVArgus.m
+   demoInputFile.m
+       makeUAVPn.m
+   initUAVAnalysis.m
+       findUVnDOF.m
+           lcpBeta2P.m
+               angles2R.m
+	    distort.m
+	        distortCaltech.m
+       findCOMRefObjFirstPass.m
+       findXYZ6dof.m
+           undistort.m
+               undistortCaltech.m
+           lcpBeta2P.m
+               . . .
+           P2m.m
+           findXYZ.m
+   matlab2Epoch.m
+   makeLCPP3.m
+   fillInsts.m
+       findUVnDOF.m
+           ...
+       findXYZ6dof.m
+           ...
+       findUVnDOF.m
+           ...
+       onScreen.m
+   showInsts.m
+       findUVnDOF.m
+           ...
+   sampleDJIFrame.m
+       findUVnDOF.m
+           ...
+       onScreen.m
+   buildRectProducts.m
+       findUVnDOF.m
+           ...
+       onScreen.m
+   findNewBeta.m
+       findCOMRefObj.m
+           findUVnDOF.m
+               ...
+       findUVnDOF.m
+           ...
+   makeFinalImages.m
+   argusFilename.m
+       epoch2Matlab.m
+   printAndSaveImageProducts.m
+       matlab2Epoch.m
+       argusFilename.m
+           ... 

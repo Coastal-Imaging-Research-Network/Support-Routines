@@ -1,0 +1,62 @@
+CIRN Function dependencies (given as a tree)
+
+*Note: read the tree vertically from top to bottom, and read a single indent 
+as 'calls'. For example, if the tree was:
+
+	function1
+		function2
+			function3
+		function4
+
+This should be read as 'function 1 calls function2 and function4, while 
+function2 calls function3.' 
+
+
+
+
+Dependency tree for cBathy demo:
+
+demoUAVcBathy.m
+   democBathy.m
+       analyzeSingleBathyRunNotCIL.m
+           analyzeBathyCollect.m
+               matlab2Epoch.m
+               prepBathyInput.m
+                   cBDebug.m
+                   alterAnalysisArray.m
+               cBDebug.m
+               plotStacksAndPhaseMaps.m
+                   findGoodTransects.m
+                   epoch2Matlab.m
+               subBathyProcess.m
+		    cBDebug.m
+                   spatialLimitBathy.m
+                   csmInvertKAlpha.m
+                       cBDebug.m
+                       dispsol.m
+                       findKAlphaPhiInit.m
+                       predictCSM.m
+		        plotPhaseTile.m
+               bathyFromKAlpha.m
+                   bathyCI.m
+                   kInvertDepthModel.m
+                       dispsol.m
+               fixBathyTide.m
+               cBathyVersion.m
+       plotBathyCollect.m
+       epoch2Matlab.m
+   
+   examineSingleBathyResult.m
+       epoch2Matlab.m 
+   plotBathyCollect.m
+   
+   showcBathyTimeseriesMovieNotCIL.m
+       findInterpMap.m
+
+   demoKalmanFiltering.m
+       KalmanFilterBathyNotCIL.m
+           findProcessError.m
+       plotBathyCollectKalman.m
+           epoch2Matlab.m
+
+   plotBathyKalmanStep.m
